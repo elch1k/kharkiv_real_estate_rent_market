@@ -22,6 +22,7 @@ From the results, we can see that I didn't get a relly amazing metrics on my tes
 
 Afterward, I also attempted to fine-tune the parameters of the XGBoost model, which led to a noticeably better result. With proper tuning, XGBoost can achieve solid performance:
 > Mean Squared Error: 4463633.622977945
+> 
 > R2 score: 0.6657614674096606
 
 So if we choose maximum possible result from here we should use this tunning XGBoost with this parametrs - {'alpha': 0, 'colsample_bytree': 1.0, 'lambda': 1, 'learning_rate': 0.05, 'max_depth': 5, 'n_estimators': 150, 'subsample': 0.7}
