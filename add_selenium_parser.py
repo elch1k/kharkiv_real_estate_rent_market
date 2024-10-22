@@ -25,27 +25,27 @@ def scrape_add_content_and_concat(html_content, row_record):
         for part in [cleaned_item.strip()]
     ]
 
-    type_offer = None                # тип пропозиції
-    winter_payment = None            # комунальні взимку
-    summer_payment = None            # комунальні влітку
-    year_of_build = None             # рік, коли побудовано
-    pet = 0                          # опція з тваринами
-    service_commission = 0           # розмір комісійних
-    type_of_wall_description = None  # тип стін
+    type_offer = None
+    winter_payment = None
+    summer_payment = None
+    year_of_build = None
+    pet = 0
+    service_commission = 0
+    type_of_wall_description = None
 
     for feature in cleaned_features:
-        if "Пропозиція від" in feature:  # тип пропозиції
+        if "Пропозиція від" in feature:
             type_offer = feature
-        elif "Комісія за послуги" in feature:  # розмір комісійних
+        elif "Комісія за послуги" in feature:
             service_commission = feature
-        elif "взимку" in feature:  # комунальні взимку
+        elif "взимку" in feature:
             winter_payment = int(re.search(r'\d+', feature).group())
-        elif "влітку" in feature:  # комунальні влітку
+        elif "влітку" in feature:
             summer_payment = int(re.search(r'\d+', feature).group())
-        elif "Побудовано" in feature:  # рік, коли побудовано
+        elif "Побудовано" in feature:
             years = re.findall(r'\d{4}', feature)
             year_of_build = max(map(int, years)) if years else None
-        elif "Можна з тваринами" in feature:  # опція з тваринами
+        elif "Можна з тваринами" in feature:
             pet = 1
         elif "Стіни з" in feature:
             type_of_wall_description = feature.replace("Стіни з ", "")
@@ -100,7 +100,7 @@ def scrape_add_content_and_concat(html_content, row_record):
     dict_row_record.update(feature_data)
     total_data.append(dict_row_record)
 
-def get_html(driver, uri):  # selenium session and multiprocessing???
+def get_html(driver, uri):
     driver.get(uri)
     time.sleep(3)
     return driver.page_source
