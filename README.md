@@ -3,7 +3,7 @@
 
 In this project I used combination of asynchronous parsing and Selenium-based parsing to scrape the necessary data for next [EDA](https://github.com/elch1k/kharkiv_real_estate_rent_market/blob/main/rent_real_estate_project.ipynb) and machine learning predicton of real estate price.
 
-The big problem of this project was data, which I didn't have much and tried to take it from every possible way, like dealing with text description to real estate announcement. After conducting EDA, I uncovered several interesting and significant patterns in the data. For example, I was able to visualize the distribution of real estate properties across different areas of Kharkiv and discovered notable differences in rental prices between these areas. The analysis revealed other valuable insights for potential renters, such as identifying key factors that influence rental prices and offering a comparison of average prices by city district. These findings could be particularly helpful for individuals looking to rent real estate in Kharkiv.
+The big problem of this project was data, which I didn't have much and tried to take it from every possible way, like dealing with text description to real estate announcement. After conducting [EDA](https://github.com/elch1k/kharkiv_real_estate_rent_market/blob/main/rent_real_estate_project.ipynb), I uncovered several interesting and significant patterns in the data. For example, I was able to visualize the distribution of real estate properties across different areas of Kharkiv and discovered notable differences in rental prices between these areas. The analysis revealed other valuable insights for potential renters, such as identifying key factors that influence rental prices and offering a comparison of average prices by city district. These findings could be particularly helpful for individuals looking to rent real estate in Kharkiv.
 
 Then my goal was to build machine learning model and try quite accurate to predict this rental price of real estate in Kharkiv. So, classical variants of machine learning were used as predictive models. Their results are presented in the table below:
 | Model                       | MSE          | MAE          | R-squared | R-squared (Train) | MAE (Train)   |
@@ -23,4 +23,5 @@ From the results, we can see that I didn't get a relly amazing metrics on my tes
 Afterward, I also attempted to fine-tune the parameters of the XGBoost model, which led to a noticeably better result. With proper tuning, XGBoost can achieve solid performance:
 > Mean Squared Error: 4463633.622977945
 > R2 score: 0.6657614674096606
-So if we choose maximum possible result from here we should use this tunning XGBoost.
+
+So if we choose maximum possible result from here we should use this tunning XGBoost with this parametrs - {'alpha': 0, 'colsample_bytree': 1.0, 'lambda': 1, 'learning_rate': 0.05, 'max_depth': 5, 'n_estimators': 150, 'subsample': 0.7}
