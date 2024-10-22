@@ -18,4 +18,9 @@ Then my goal was to build machine learning model and try quite accurate to predi
 | Decision Tree               | 1.056401e+07 | 2153.120253  | 0.208963  | 0.999684         | 4.239326      |
 | SVR                         | 1.390981e+07 | 2731.858771  | -0.041571 | -0.037534        | 2614.980070   |
 
+From the results, we can see that I didn't get a relly amazing metrics on my test data and also I got overfitting with complex model like Random Forest and other boosting models. Despite this, we can roughly estimate the rental price. Here, among all the models, I would choose Linear Regression as it showed decent performance without significant overfitting. While it may not be as complex as the other models, its results were more consistent on both the training and test data.
 
+Afterward, I also attempted to fine-tune the parameters of the XGBoost model, which led to a noticeably better result. With proper tuning, XGBoost can achieve solid performance:
+> Mean Squared Error: 4463633.622977945
+> R2 score: 0.6657614674096606
+So if we choose maximum possible result from here we should use this tunning XGBoost.
